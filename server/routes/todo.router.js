@@ -22,6 +22,27 @@ router.get('/', (req, res) => {
   });
 
 // POST
+router.post('/', (req, res) => {
+    const newTask = req.body;
+    const queryText = `INSERT INTO "tasks" ("name", "completed")
+    VALUES
+      ($1, $2);`;
+    const queryArgs = [
+      newTask.name,
+      newTask.completed,
+    ];
+  
+    pool
+      .query(queryText, queryArgs)
+      .then((result) => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        console.log('ERROR:', err);
+  
+        res.sendStatus(500);
+      });
+  });
 
 // PUT
 
