@@ -45,6 +45,20 @@ router.post('/', (req, res) => {
   });
 
 // PUT
+router.put('/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const task = req.body;
+    const queryText = `UPDATE "tasks" SET "completed" = $1 WHERE "id" = $2;`;
+    pool
+        .query(queryText, [task.description, id])
+        .then(() => {
+            res.sendStatus(200);
+          })
+          .catch((err) => {
+            console.log('ERROR:', err);
+            res.sendStatus(500);
+        });
+    });
 
 // DELETE
 router.delete('/:id', (req, res) => {
