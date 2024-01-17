@@ -5,6 +5,7 @@ import AddToDo from '../AddToDo/AddToDo';
 import ToDoList from '../ToDoList/ToDoList';
 import { fetchList} from '../../components/TaskAPI/Task.api';
 import './App.css';
+import { createTheme } from '@mui/material/styles';
 
 function App () {
   const [taskList, setTaskList] = useState([]);
@@ -47,5 +48,16 @@ function App () {
       </div>
   );
 }
+
+// const theme = createTheme({
+//   palette: {
+//     ochre: {
+//       main: '#E3D026',
+//       light: '#E9DB5D',
+//       dark: '#A29415',
+//       contrastText: '#242105',
+//     },
+//   },
+// });
 
 export default App

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-
 import { postTask } from '../../components/TaskAPI/Task.api';
+import Button from '@mui/material/Button';
 
 function AddToDo(props) {
     const [nameValue, setNameValue] = useState('');
@@ -58,7 +58,8 @@ function AddToDo(props) {
                 value={originValue}
               />
             </label> */}
-            <button type="submit">Add</button>
+            <Button type="submit" variant="contained" size="small">ADD</Button>
+            {/* <button type="submit">Add</button> */}
         </form>
     </>    
     );
