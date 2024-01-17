@@ -48,7 +48,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     const id = parseInt(req.params.id)
     const task = req.body;
-    const queryText = `UPDATE "tasks" SET "completed" = $1 WHERE "id" = $2;`;
+    //const queryText = `UPDATE "tasks" SET "completed" = $1 WHERE "id" = $2;`;
+    const queryText = `UPDATE "tasks" SET "completed" = NOT "completed" WHERE "id" = $2;`;
     pool
         .query(queryText, [task.description, id])
         .then(() => {
