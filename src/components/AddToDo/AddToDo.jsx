@@ -21,7 +21,7 @@ function AddToDo(props) {
       // post data
       postTask({
         name: nameValue,
-        completed: completedValue,
+        // completed: completedValue,
       })
         .then((response) => {
           // on success fetchData
