@@ -1,11 +1,11 @@
-import {useState, useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import Header from '../Header/Header';
 import AddToDo from '../AddToDo/AddToDo';
 import ToDoList from '../ToDoList/ToDoList';
-import { fetchList} from '../../components/TaskAPI/Task.api';
+import { fetchList } from '../../components/TaskAPI/Task.api';
 import './App.css';
-import { createTheme } from '@mui/material/styles';
+
 
 function App () {
   const [taskList, setTaskList] = useState([]);
@@ -35,29 +35,11 @@ function App () {
       <div className='dashboard'>
           <Header />
           <AddToDo taskRefreshCallback={refreshTasks} />
-          <ToDoList />
-          {taskList.map((taskData, dataIndex) => {
-        return (
-          <div key={dataIndex}>
-            {/* key prop needs to be a unique value */}
-            <h3>{taskData.name}</h3>
-            <p>{taskData.completed}</p>
-          </div>
-        );
-      })}
+          <ToDoList taskList={taskList}/>
+
       </div>
   );
 }
 
-// const theme = createTheme({
-//   palette: {
-//     ochre: {
-//       main: '#E3D026',
-//       light: '#E9DB5D',
-//       dark: '#A29415',
-//       contrastText: '#242105',
-//     },
-//   },
-// });
 
 export default App

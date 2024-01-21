@@ -50,15 +50,6 @@ function AddToDo(props) {
                 value={nameValue}
               />
             </label>
-            {/* <p>{nameValue}</p> */}
-            {/* <label>
-              <span>Origin:</span>
-              <input
-                id="origin"
-                onChange={handleChangeOfOrigin}
-                value={originValue}
-              />
-            </label> */}
             <Button type="submit" variant="contained" size="small">ADD</Button>
             {/* <button type="submit">Add</button> */}
         </form>
