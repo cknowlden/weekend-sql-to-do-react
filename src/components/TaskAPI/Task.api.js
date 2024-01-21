@@ -9,13 +9,9 @@ export const postTask = (taskData) => {
     return axios.post('/api/todo', taskData);
 };
 
-// export const updateTask = (taskData) => {
-//     return axios.put('/api/todo/:id', taskData);
-// };
-
-// export const deleteTask = (taskData) => {
-//     return axios.delete('/api/todo/:id', taskData);
-// };
+export const updateTaskCompletedStatus = (taskId) => {
+    return axios.put(`/api/todo/${taskId}`);
+};
 
 export const deleteTask = (taskId) => {
   return axios.delete(`/api/todo/${taskId}`);
