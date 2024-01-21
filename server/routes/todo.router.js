@@ -8,7 +8,7 @@ const pool = require('../modules/pool.js');
 // });
 router.get('/', (req, res) => {
     //res.send(bookList)
-    const dbQuery = 'SELECT * FROM "tasks";';
+    const dbQuery = 'SELECT * FROM "tasks" ORDER BY "id";';
     pool
       .query(dbQuery)
       .then((result) => {
@@ -48,9 +48,9 @@ router.put('/:id', (req, res) => {
     const id = parseInt(req.params.id)
     const task = req.body;
     //const queryText = `UPDATE "tasks" SET "completed" = $1 WHERE "id" = $2;`;
-    const queryText = `UPDATE "tasks" SET "completed" = NOT "completed" WHERE "id" = $2;`;
+    const queryText = `UPDATE "tasks" SET "completed" = TRUE WHERE "id" = $1;`;
     pool
-        .query(queryText, [task.description, id])
+        .query(queryText, [id])
         .then(() => {
             res.sendStatus(200);
           })
