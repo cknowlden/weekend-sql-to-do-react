@@ -6,7 +6,7 @@ import { createTheme } from '@mui/material/styles';
 
 function AddToDo(props) {
     const [nameValue, setNameValue] = useState('');
-    const [completedValue, setCompletedValue] = useState('');
+    // const [completedValue, setCompletedValue] = useState('');
   
     // const handleChangeOfOrigin = (event) => {
     //   setOriginValue(event.target.value);
@@ -16,7 +16,7 @@ function AddToDo(props) {
       event.preventDefault();
       console.log('Values for SUBMIT:', {
         name: nameValue,
-        completed: completedValue,
+        // completed: completedValue,
       });
   
       // post data

@@ -1,15 +1,14 @@
 CREATE TABLE "tasks" (
 	"id" SERIAL PRIMARY KEY,
-	"name" varchar(80),
-	"description" varchar(255),
-	"completed" boolean DEFAULT false
+	"name" varchar(100) NOT NULL,
+	"completed" boolean DEFAULT FALSE
 );
 
-INSERT INTO tasks ("name", "description", "completed")
+INSERT INTO tasks ("name", "completed")
 VALUES 
-('Buy groceries', 'broccoli and carrots', FALSE),
-('Pay electric bill', 'cost is $130 this month', FALSE),
-('Feed the cats', 'the good kind of food', FALSE);
+('Buy groceries', FALSE),
+('Pay electric bill', FALSE),
+('Feed the cats', FALSE);
 
 UPDATE "task" SET "completed" = TRUE WHERE "id" = 1;
 

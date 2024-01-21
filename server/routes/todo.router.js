@@ -24,12 +24,11 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req, res) => {
     const newTask = req.body;
-    const queryText = `INSERT INTO "tasks" ("name", "completed")
+    const queryText = `INSERT INTO "tasks" ("name")
     VALUES
-      ($1, $2);`;
+      ($1);`;
     const queryArgs = [
       newTask.name,
-      newTask.completed,
     ];
   
     pool
