@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import AddToDo from '../AddToDo/AddToDo';
 import ToDoList from '../ToDoList/ToDoList';
+import ToDoItem from '../ToDoItem/ToDoItem';
 import { fetchList } from '../../components/TaskAPI/Task.api';
 import './App.css';
 
@@ -27,8 +28,6 @@ function App () {
 
   // initial load of component
   useEffect(() => {
-    // body of effect
-    // console.log('Hi Hi');
     // api call
     refreshTasks();
   }, []);
@@ -41,6 +40,10 @@ function App () {
             taskList={taskList} 
             taskRefreshCallback={refreshTasks}
           />
+          {/* <ToDoItem 
+            taskList={taskList} 
+            taskRefreshCallback={refreshTasks}
+          /> */}
       </div>
   );
 }
