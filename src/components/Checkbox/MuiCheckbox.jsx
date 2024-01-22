@@ -1,12 +1,14 @@
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
+import { Box, FormControlLabel, Checkbox} from '@mui/material';
 
-export const Checkboxes = () => {
+export const MuiCheckbox = () => {
   return (
-    <div>
-    <FormControlLabel
-        label = ''
-        control={<Checkbox />}
-    />
-    </div>
+    <Box>
+      <Box>
+        <FormControlLabel
+          label = 'CHECK'
+          control={<Checkbox />}
+        />
+      </Box>
+    </Box>
   );
 };

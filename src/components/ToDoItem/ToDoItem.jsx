@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteTask } from '../../components/TaskAPI/Task.api';
 import {updateTaskCompletedStatus} from '../../components/TaskAPI/Task.api';
+import {MuiCheckbox} from '../Checkbox/MuiCheckbox'
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -34,10 +35,6 @@ function ToDoItem({taskData, taskRefreshCallback}) {
     
     return (
     <>  
-        <header>
-            <h1>To Do List</h1>
-        </header>
-
         {/* <Grid
         item
         xs={8}
@@ -72,7 +69,7 @@ function ToDoItem({taskData, taskRefreshCallback}) {
         onClick={() => handleClickToggleCompleted(taskData.id)} 
         >
         <Box
-            borderRadius={3}
+            borderRadius={9}
             border={
             taskData.completed
                 ? '3px solid rgb(113, 232, 48)'
@@ -83,8 +80,10 @@ function ToDoItem({taskData, taskRefreshCallback}) {
             padding: '10px',
             }}
         >
-            {taskData.completed && <i>completed</i>}
-            <p>{taskData.name}</p>
+            <MuiCheckbox />
+            {/* {taskData.completed && <i>completed</i>} */}
+            
+            {taskData.name}
             <Button
             variant="contained"
             color="secondary"
