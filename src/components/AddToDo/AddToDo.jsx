@@ -6,12 +6,7 @@ import { createTheme } from '@mui/material/styles';
 
 function AddToDo(props) {
     const [nameValue, setNameValue] = useState('');
-    // const [completedValue, setCompletedValue] = useState('');
-  
-    // const handleChangeOfOrigin = (event) => {
-    //   setOriginValue(event.target.value);
-    // };
-  
+
     const handleSubmitTask = (event) => {
       event.preventDefault();
       console.log('Values for SUBMIT:', {
@@ -51,7 +46,6 @@ function AddToDo(props) {
               />
             </label>
             <Button type="submit" variant="contained" size="small">ADD</Button>
-            {/* <button type="submit">Add</button> */}
         </form>
     </>    
     );

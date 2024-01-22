@@ -1,9 +1,9 @@
 import React from 'react';
-import { fetchList } from '../../components/TaskAPI/Task.api';
-import { postTask } from '../../components/TaskAPI/Task.api';
 import { deleteTask } from '../../components/TaskAPI/Task.api';
 import {updateTaskCompletedStatus} from '../../components/TaskAPI/Task.api';
-
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 function ToDoList({taskList, taskRefreshCallback}) {
 
@@ -37,7 +37,12 @@ function ToDoList({taskList, taskRefreshCallback}) {
             <h1>To Do List</h1>
         </header>
 
-        <div>
+        <Grid
+        item
+        xs={8}
+        md={6}
+        lg={3}
+        >
         {taskList.map((task, dataIndex) => {
         return (
             <div 
@@ -56,7 +61,7 @@ function ToDoList({taskList, taskRefreshCallback}) {
             </div>
         );
         })}
-        </div>
+        </Grid>
     </>
     );
 }
