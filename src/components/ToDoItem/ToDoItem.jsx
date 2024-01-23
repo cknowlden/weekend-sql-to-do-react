@@ -8,10 +8,13 @@ import Box from '@mui/material/Box';
 import { purple } from '@mui/material/colors';
 
 function ToDoItem({taskData, taskRefreshCallback}) {
+    // console.log('taskData', taskData);
 
-    const handleClickToggleCompleted = (id) => {
+    const handleClickToggleCompleted = (id, completed) => {
+        const booleanStatus = !completed
+        console.log('booleanStat', booleanStatus)
         console.log('Updating complete status - taskId:', id);
-        updateTaskCompletedStatus(id)
+        updateTaskCompletedStatus(id, completed)
             .then((response) => {
             taskRefreshCallback();
             })
@@ -66,7 +69,7 @@ function ToDoItem({taskData, taskRefreshCallback}) {
         xs={8}
         md={6}
         lg={3}
-        onClick={() => handleClickToggleCompleted(taskData.id)} 
+        onClick={() => handleClickToggleCompleted(taskData.id, taskData.completed)} 
         >
         <Box
             borderRadius={9}
