@@ -1,31 +1,12 @@
 import React from 'react';
 import { deleteTask } from '../../components/TaskAPI/Task.api';
 import { updateTaskCompletedStatus } from '../../components/TaskAPI/Task.api';
-// import { MuiCheckbox } from '../Checkbox/MuiCheckbox';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { grey } from '@mui/material/colors';
-// import { theme } from '../CreateTheme/CreateTheme';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       light: '#F2E4DC',
-//       main: '#A6806A',
-//       dark: '#A6806A',
-//       contrastText: '#fff',
-//     },
-//     secondary: {
-//       light: '#D9C1B4',
-//       main: '#f44336',
-//       dark: '#0D0D0D',
-//       contrastText: '#000',
-//     },
-//   },
-// });
+import './ToDoItem.module.css';
 
 function ToDoItem({ taskData, taskRefreshCallback }) {
   // console.log('taskData', taskData);
@@ -70,15 +51,18 @@ function ToDoItem({ taskData, taskRefreshCallback }) {
             bgcolor: 'primary.light',
             margin: '10px',
             padding: '10px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            // align: 'center',
           }}
           onClick={() =>
             handleClickToggleCompleted(taskData.id, taskData.completed)
           }
         >
-          {/* <MuiCheckbox /> */}
           <Checkbox />
           {taskData.name}
           <Button
+            // className=".task-text"
             variant="outlined"
             color="primary"
             size="small"
