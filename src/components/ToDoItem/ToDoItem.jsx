@@ -59,8 +59,15 @@ function ToDoItem({ taskData, taskRefreshCallback }) {
             handleClickToggleCompleted(taskData.id, taskData.completed)
           }
         >
-          <Checkbox />
-          {taskData.name}
+          <div
+            style={{
+              alignItems: 'left',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Checkbox />
+            {taskData.name}
+          </div>
           <Button
             // className=".task-text"
             variant="outlined"
