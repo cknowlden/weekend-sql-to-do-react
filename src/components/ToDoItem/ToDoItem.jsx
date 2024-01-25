@@ -58,10 +58,9 @@ function ToDoItem({ taskData, taskRefreshCallback }) {
 
   return (
     <>
-      {/* <ThemeProvider theme={theme}> */}
       <Grid item xs={8} md={7} lg={6}>
         <Box
-          borderRadius={9}
+          borderRadius={2}
           border={
             taskData.completed
               ? '3px solid rgb(113, 232, 48)'
@@ -92,7 +91,6 @@ function ToDoItem({ taskData, taskRefreshCallback }) {
           </Button>
         </Box>
       </Grid>
-      {/* </ThemeProvider> */}
     </>
   );
 }

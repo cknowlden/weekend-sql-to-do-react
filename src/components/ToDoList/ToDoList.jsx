@@ -1,23 +1,36 @@
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import React from 'react';
+import Box from '@mui/material/Box';
 
 import ToDoItem from '../ToDoItem/ToDoItem';
 
 function ToDoList({ taskList, taskRefreshCallback }) {
-    return (
-    <Grid container spacing={2}>
+  return (
+    <>
+      <Box
+        borderRadius={2}
+        border={'primary.main'}
+        sx={{
+          bgcolor: 'secondary.light',
+          margin: '10px',
+          padding: '10px',
+        }}
+      >
+        {/* <Grid container spacing={2}> */}
         {taskList.map((taskData) => {
-        return (
+          return (
             <ToDoItem
-            // <ToDoItem className={style['color-item']}
-            key={taskData.id}
-            taskData={taskData}
-            taskRefreshCallback={taskRefreshCallback}
+              // <ToDoItem className={style['color-item']}
+              key={taskData.id}
+              taskData={taskData}
+              taskRefreshCallback={taskRefreshCallback}
             />
-        );
+          );
         })}
-    </Grid>
-    );
+        {/* </Grid> */}
+      </Box>
+    </>
+  );
 }
 
 export default ToDoList;
