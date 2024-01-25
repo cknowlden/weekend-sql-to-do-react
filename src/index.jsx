@@ -20,6 +20,7 @@ const theme = createTheme({
       contrastText: '#000',
     },
   },
+  spacing: 4,
 });
 
 root.render(
