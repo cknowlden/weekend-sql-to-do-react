@@ -3,9 +3,10 @@ import React from 'react';
 import Header from '../Header/Header';
 import AddToDo from '../AddToDo/AddToDo';
 import ToDoList from '../ToDoList/ToDoList';
-import ToDoItem from '../ToDoItem/ToDoItem';
 import { fetchList } from '../../components/TaskAPI/Task.api';
 import './App.css';
+import Grid from '@mui/material/Grid';
+import image from '../../../public/images/gray_leaves.jpg';
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -31,14 +32,22 @@ function App() {
   }, []);
 
   return (
-    <div className="dashboard">
-      <Header />
-      <AddToDo taskRefreshCallback={refreshTasks} />
-      <ToDoList taskList={taskList} taskRefreshCallback={refreshTasks} />
-      {/* <ToDoItem
-            taskList={taskList}
-            taskRefreshCallback={refreshTasks}
-          /> */}
+    <div
+      style={{
+        backgroundImage: `url(${image})`,
+        backgroundRepeat: 'no-repeat',
+        // backgroundSize: 'contain',
+        // height: 600,
+        // width: 600,
+      }}
+    >
+      <div className="dashboard">
+        <Header />
+        <AddToDo taskRefreshCallback={refreshTasks} />
+        {/* <Grid item xs={8} md={7} lg={6}> */}
+        <ToDoList taskList={taskList} taskRefreshCallback={refreshTasks} />
+        {/* </Grid> */}
+      </div>
     </div>
   );
 }
