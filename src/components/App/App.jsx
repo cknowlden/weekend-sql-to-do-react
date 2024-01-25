@@ -45,9 +45,15 @@ function App() {
       <div className="dashboard">
         <Header />
         <AddToDo taskRefreshCallback={refreshTasks} />
-        {/* <Grid item xs={8} md={7} lg={6}> */}
-        <ToDoList taskList={taskList} taskRefreshCallback={refreshTasks} />
-        {/* </Grid> */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <ToDoList taskList={taskList} taskRefreshCallback={refreshTasks} />
+        </div>
       </div>
     </div>
   );
