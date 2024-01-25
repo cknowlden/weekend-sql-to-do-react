@@ -36,9 +36,10 @@ function App() {
       style={{
         backgroundImage: `url(${image})`,
         backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'contain',
-        // height: 600,
-        // width: 600,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        width: '100vw',
+        height: '100vh',
       }}
     >
       <div className="dashboard">
