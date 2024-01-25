@@ -55,9 +55,9 @@ function App() {
         <Box
           borderRadius={2}
           sx={{
-            bgcolor: 'primary.light',
-            margin: '20px',
-            padding: '8px',
+            bgcolor: 'primary.dark',
+            margin: '10px',
+            padding: '2px',
             display: 'flex',
             justifyContent: 'center',
             // align: 'center',

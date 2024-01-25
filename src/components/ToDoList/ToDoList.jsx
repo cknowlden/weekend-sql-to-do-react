@@ -14,7 +14,7 @@ function ToDoList({ taskList, taskRefreshCallback }) {
         sx={{
           bgcolor: 'secondary.light',
           margin: '10px',
-          padding: '10px',
+          padding: '14px',
         }}
       >
         {/* <Grid container spacing={2}> */}
