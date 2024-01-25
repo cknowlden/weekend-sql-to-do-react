@@ -1,107 +1,98 @@
 import React from 'react';
 import { deleteTask } from '../../components/TaskAPI/Task.api';
-import {updateTaskCompletedStatus} from '../../components/TaskAPI/Task.api';
-import {MuiCheckbox} from '../Checkbox/MuiCheckbox'
+import { updateTaskCompletedStatus } from '../../components/TaskAPI/Task.api';
+import { MuiCheckbox } from '../Checkbox/MuiCheckbox';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { purple } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
+// import { theme } from '../CreateTheme/CreateTheme';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function ToDoItem({taskData, taskRefreshCallback}) {
-    // console.log('taskData', taskData);
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       light: '#F2E4DC',
+//       main: '#A6806A',
+//       dark: '#A6806A',
+//       contrastText: '#fff',
+//     },
+//     secondary: {
+//       light: '#D9C1B4',
+//       main: '#f44336',
+//       dark: '#0D0D0D',
+//       contrastText: '#000',
+//     },
+//   },
+// });
 
-    const handleClickToggleCompleted = (id, completed) => {
-        const booleanStatus = !completed
-        console.log('booleanStat', booleanStatus)
-        console.log('Updating complete status - taskId:', id);
-        updateTaskCompletedStatus(id, completed)
-            .then((response) => {
-            taskRefreshCallback();
-            })
-            .catch((err) => {
-            console.error('ERROR:', err);
-            });
-    };
+function ToDoItem({ taskData, taskRefreshCallback }) {
+  // console.log('taskData', taskData);
 
-    const handleClickDelete = (id) => {
-        // ID item
-        console.log('DELETE - taskId:', id);
-        // MAKE Axios Call
-        deleteTask(id)
-            .then((response) => {
-            taskRefreshCallback();
-            })
-            .catch((err) => {
-            console.error('ERROR:', err);
-        });
-    };
-    
-    return (
-    <>  
-        {/* <Grid
-        item
-        xs={8}
-        md={6}
-        lg={3}
-        >
-        {taskList.map((task, dataIndex) => {
-        return (
-            <div 
-            key={dataIndex} 
-            onClick={() => handleClickToggleCompleted(task.id)}             
-            className={`task ${
-            task.completed ? "FALSE" : "TRUE"
-            }`}
-        >
-                {task.completed} 
-                {task.completed && <i>completed</i>}
-                {task.name}
-                <button onClick={(event) => handleClickDelete(task.id)}>
-                    Delete
-                </button>
-            </div>
-        );
-        })}
-        </Grid> */}
+  const handleClickToggleCompleted = (id, completed) => {
+    const booleanStatus = !completed;
+    console.log('booleanStat', booleanStatus);
+    console.log('Updating complete status - taskId:', id);
+    updateTaskCompletedStatus(id, completed)
+      .then((response) => {
+        taskRefreshCallback();
+      })
+      .catch((err) => {
+        console.error('ERROR:', err);
+      });
+  };
 
-        <Grid
-        item
-        xs={8}
-        md={6}
-        lg={3}
-        onClick={() => handleClickToggleCompleted(taskData.id, taskData.completed)} 
-        >
+  const handleClickDelete = (id) => {
+    // ID item
+    console.log('DELETE - taskId:', id);
+    // MAKE Axios Call
+    deleteTask(id)
+      .then((response) => {
+        taskRefreshCallback();
+      })
+      .catch((err) => {
+        console.error('ERROR:', err);
+      });
+  };
+
+  return (
+    <>
+      {/* <ThemeProvider theme={theme}> */}
+      <Grid item xs={8} md={7} lg={6}>
         <Box
-            borderRadius={9}
-            border={
+          borderRadius={9}
+          border={
             taskData.completed
-                ? '3px solid rgb(113, 232, 48)'
-                : `3px solid ${purple[500]}`
-            }
-            sx={{
+              ? '3px solid rgb(113, 232, 48)'
+              : `3px solid ${grey[900]}`
+          }
+          sx={{
+            bgcolor: 'primary.light',
             margin: '10px',
             padding: '10px',
-            }}
+          }}
+          onClick={() =>
+            handleClickToggleCompleted(taskData.id, taskData.completed)
+          }
         >
-            <MuiCheckbox />
-            {/* {taskData.completed && <i>completed</i>} */}
-            
-            {taskData.name}
-            <Button
-            variant="contained"
-            color="secondary"
+          <MuiCheckbox />
+          {taskData.name}
+          <Button
+            variant="outlined"
+            color="primary"
             size="small"
             onClick={(event) => {
-                event.preventDefault();
-                handleClickDelete(taskData.id);
+              event.preventDefault();
+              handleClickDelete(taskData.id);
             }}
-            >
+          >
             Delete
-            </Button>
+          </Button>
         </Box>
-        </Grid>
+      </Grid>
+      {/* </ThemeProvider> */}
     </>
-    );
+  );
 }
 
 export default ToDoItem;

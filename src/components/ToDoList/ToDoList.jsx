@@ -9,6 +9,7 @@ function ToDoList({ taskList, taskRefreshCallback }) {
         {taskList.map((taskData) => {
         return (
             <ToDoItem
+            // <ToDoItem className={style['color-item']}
             key={taskData.id}
             taskData={taskData}
             taskRefreshCallback={taskRefreshCallback}

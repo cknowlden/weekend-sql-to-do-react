@@ -7,9 +7,7 @@ import ToDoItem from '../ToDoItem/ToDoItem';
 import { fetchList } from '../../components/TaskAPI/Task.api';
 import './App.css';
 
-
-
-function App () {
+function App() {
   const [taskList, setTaskList] = useState([]);
 
   const refreshTasks = () => {
@@ -33,20 +31,16 @@ function App () {
   }, []);
 
   return (
-      <div className='dashboard'>
-          <Header />
-          <AddToDo taskRefreshCallback={refreshTasks} />
-          <ToDoList 
-            taskList={taskList} 
-            taskRefreshCallback={refreshTasks}
-          />
-          {/* <ToDoItem 
-            taskList={taskList} 
+    <div className="dashboard">
+      <Header />
+      <AddToDo taskRefreshCallback={refreshTasks} />
+      <ToDoList taskList={taskList} taskRefreshCallback={refreshTasks} />
+      {/* <ToDoItem
+            taskList={taskList}
             taskRefreshCallback={refreshTasks}
           /> */}
-      </div>
+    </div>
   );
 }
 
-
-export default App
+export default App;
