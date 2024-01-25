@@ -5,7 +5,7 @@ import AddToDo from '../AddToDo/AddToDo';
 import ToDoList from '../ToDoList/ToDoList';
 import { fetchList } from '../../components/TaskAPI/Task.api';
 import './App.css';
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Grid';
 import image from '../../../public/images/gray_leaves.jpg';
 
 function App() {
@@ -43,8 +43,28 @@ function App() {
       }}
     >
       <div className="dashboard">
-        <Header />
-        <AddToDo taskRefreshCallback={refreshTasks} />
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Header />
+        </div>
+        <Box
+          borderRadius={2}
+          sx={{
+            bgcolor: 'primary.light',
+            margin: '20px',
+            padding: '8px',
+            display: 'flex',
+            justifyContent: 'center',
+            // align: 'center',
+          }}
+        >
+          <AddToDo taskRefreshCallback={refreshTasks} />
+        </Box>
         <div
           style={{
             display: 'flex',

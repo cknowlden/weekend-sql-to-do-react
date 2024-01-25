@@ -69,7 +69,6 @@ function ToDoItem({ taskData, taskRefreshCallback }) {
             {taskData.name}
           </div>
           <Button
-            // className=".task-text"
             variant="outlined"
             color="primary"
             size="small"
